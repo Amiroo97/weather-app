@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather🌦️</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    </head>
+  <body>
+    <div class="container">
+      <div class="base">
+        <div class="row">
+          <div class="col-7">
+            <h1 id="days">Sunday</h1>
+            <h5 id="date-time">1 January 2025 | 4:10 </h5>
+            <h3>
+              <span class="material-symbols-outlined"> location_on </span
+              > <span id="city-name">hamedan</span> 
+            </h3>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                 <label class="btn btn-outline-primary" for="btnradio1">ºC</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">ºF</label>
+            </div>
+          </div>
+          <div class="col-5">
+            <form>
+              <div class="row">
+                <div class="col-8">
+                  <input
+                    type="search"
+                    placeholder="type a city.."
+                    class="form-control shadow-sm"
+                    id="search-box"
+                  />
+                </div>
+                <div class="col-4">
+                  <input
+                    type="submit"
+                    value="search"
+                    class="form-control btn btn-primary shadow-sm"
+                    id="search-city"
+                  />
+                </div>
+              </div>
+            </form>
+            <br />
+            <!-- <button type="button" class="btn btn-light shadow-sm">
+              Tehran
+            </button>
+            <button type="button" class="btn btn-light shadow-sm">
+              Esfahan
+            </button>
+            <button type="button" class="btn btn-light shadow-sm">
+              Tabriz
+            </button>
+            <button type="button" class="btn btn-light shadow-sm">
+              Shiraz
+            </button> -->
+            <div class="d-grid gap-2  mx-auto">
+              <button class="btn btn-primary" type="button" id="current-loc">Show current location</button>
+            </div>
+          </div>
+        </div>
+        <br />    
+         <div class="row align-items-center">
+            <div class="col">
+            <img
+              src="https://img.freepik.com/free-icon/cloudy-day_318-491358.jpg?t=st=1672753486~exp=1672754086~hmac=0cde23539998593e2015a3f9df7d4d3bd2f92762f878b3910c5c8b151c82e72d"
+              alt="partly cloudy"
+              class="partly-cloudy"
+            />
+            <h5 class="caption">Partly cloudy</h5>
+            </div>
+            <div class="col">
+            <img
+            src="https://cdn-icons-png.flaticon.com/512/777/777644.png?w=740&t=st=1672754863~exp=1672755463~hmac=a117e6e0594eb5a8f1c5fdfc33f5ea733571fc0189929e9d0e0cd25cc73b08ec"
+            alt="temperature"
+            class="temperature"
+          />
+          <h4 class="today" id="current-temp">8º</h4>
+            </div>
+            <div class="col">
+            <ul>
+              <li><span class="material-symbols-outlined">
+                    cloudy_snowing
+                    </span> Precipitation: 0%</li>
+              <li><span class="material-symbols-outlined">
+                    humidity_low
+                    </span> Humidity: 35%</li>
+              <li><span class="material-symbols-outlined">
+                    air
+                    </span> wind: 22 km/s</li>
+            </ul>
+            </div>
+             </div> <br>
+             <hr class="hr hr-blurry" /> 
+               <div class="row align-items-center">
+                 <div class="col">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1244/1244034.png?w=740&t=st=1672753139~exp=1672753739~hmac=2e24e23867b017c3af85ba96f40eee5148d0693df2f83823e20dbc543b813193" alt="sunny" class="sunny">
+                  <h5 class="mon">Mon <br>9º | 16º</h5>
+                 </div> 
+                 <div class="col">
+                 <img src="https://cdn-icons-png.flaticon.com/512/577/577538.png?w=740&t=st=1672825549~exp=1672826149~hmac=7d72b07b128c73e9d88d2b752221f5966be4f7bdbf1f7375cf752cd25b313054" alt="rainy" class="rainy">
+                 <h5 class="tue">Tue <br>3º | 8º</h5>
+                 </div>
+                 <div class="col">
+                     <img src="https://cdn-icons-png.flaticon.com/512/286/286612.png?w=740&t=st=1672826897~exp=1672827497~hmac=4b4200e1865b2bf5e0f166a1388a6ef40d242959d3bf87e392c8ae8789a9f0e5" alt="almost-sunny" class="almost-sunny">
+                     <h5 class="wed">Wed <br>7º | 12º</h5>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
