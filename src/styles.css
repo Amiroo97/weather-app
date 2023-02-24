@@ -75,3 +75,12 @@ li {
    padding: 7px 8px;
    text-align: center;
 }
+#footer{
+    margin-left: 260px;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 15px;
+}
+#github-link {
+    text-decoration: none;
+}
