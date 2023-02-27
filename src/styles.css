@@ -88,3 +88,10 @@ li {
 #city-name {
     text-transform: capitalize;
 }
+#date-time{
+    margin-bottom: 15px;
+}
+.conversion {
+    text-align: right;
+    display: block;
+}

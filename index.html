@@ -33,13 +33,6 @@
               <span class="material-symbols-outlined">location_on</span
               > <span id="city-name">Hamedan</span> 
             </h3>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                 <label class="btn btn-outline-primary" for="btnradio1">ºC</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2">ºF</label>
-            </div>
           </div>
           <div class="col-5">
             <form>
@@ -63,9 +56,16 @@
               </div>
             </form>
             <br />
-            
             <div class="d-grid gap-2  mx-auto">
               <button class="btn btn-primary" type="button" id="current-loc">Show current location</button>
+            </div>
+            <br />
+            <div class="btn-group conversion" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                 <label class="btn btn-outline-primary" for="btnradio1">ºC</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">ºF</label>
             </div>
           </div>
         </div>
@@ -73,8 +73,9 @@
          <div class="row align-items-center">
             <div class="col">
             <img
-              src="https://img.freepik.com/free-icon/cloudy-day_318-491358.jpg?t=st=1672753486~exp=1672754086~hmac=0cde23539998593e2015a3f9df7d4d3bd2f92762f878b3910c5c8b151c82e72d"
-              alt="partly cloudy"
+              id="icon"
+              src=""
+              alt=""
               class="partly-cloudy"
             />
             <h5 id="description">Partly cloudy</h5>
@@ -89,9 +90,6 @@
             </div>
             <div class="col">
             <ul>
-              <li><span class="material-symbols-outlined">
-                    cloudy_snowing
-                    </span> Precipitation: <span id="precipitation"></span>%</li>
               <li><span class="material-symbols-outlined">
                     humidity_low
                     </span> Humidity: <span id="humidity"></span>%</li>
