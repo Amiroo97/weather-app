@@ -32,8 +32,12 @@
     margin-bottom: 25px;
     padding-top: 30px;
 }
-.caption {
+#description {
     text-align: center;
+    
+}
+#decription:first-letter{
+    text-transform: capitalize;
 }
 .today {
     text-align: center;
@@ -80,4 +84,7 @@ li {
 
 #github-link {
     text-decoration: none;
+}
+#city-name {
+    text-transform: capitalize;
 }

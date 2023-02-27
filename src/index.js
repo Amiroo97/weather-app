@@ -35,7 +35,14 @@ currentDate.innerHTML = `${now.getDate()} ${
 
 function showTemp(response) {
   let temperature = document.querySelector("#current-temp");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   temperature.innerHTML = Math.round(response.data.main.temp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  console.log(response);
 }
 function searchCity(event) {
   event.preventDefault();
@@ -51,22 +58,6 @@ function searchCity(event) {
 
 let submit = document.querySelector("#search-city");
 submit.addEventListener("click", searchCity);
-/*
-function changeToCelsius(event) {
-  //event.preventDefault();
-  let farenheitTemp = document.querySelector("#current-temp");
-  farenheitTemp.innerHTML = "8º";
-}
-function changeToFarenheit(event) {
-  //event.preventDefault();
-  let celsiusTemp = document.querySelector("#current-temp");
-  celsiusTemp.innerHTML = "46º";
-}
-let celsiusButton = document.querySelector("#btnradio1");
-celsiusButton.addEventListener("click", changeToCelsius);
-let farenheitButton = document.querySelector("#btnradio2");
-farenheitButton.addEventListener("click", changeToFarenheit);
-*/
 
 function showPosition(position) {
   let apiKey = "5354b60afda2b7800186c06153932396";
