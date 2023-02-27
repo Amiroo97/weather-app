@@ -47,7 +47,6 @@ function showTemp(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  console.log(response);
 }
 function searchCity(event) {
   event.preventDefault();
