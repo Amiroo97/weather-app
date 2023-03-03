@@ -40,9 +40,11 @@ function showTemp(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
-  console.log(response);
+
+  celsiusTemp = Math.round(response.data.temperature.current);
+
   cityName.innerHTML = response.data.city;
-  temperature.innerHTML = `${Math.round(response.data.temperature.current)}º`;
+  temperature.innerHTML = `${celsiusTemp}º`;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -66,21 +68,26 @@ function handleSubmit(event) {
   }
 }
 
-searchCity("Amsterdam");
+function showFarenheitTemp(event) {
+  let tempElement = document.querySelector("#current-temp");
+  let farenheitTemp = Math.round((celsiusTemp * 5) / 9 + 32);
+  tempElement.innerHTML = `${farenheitTemp}º`;
+}
+
+function showCelsiusTemp(event) {
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = `${celsiusTemp}º`;
+}
+
+let celsiusTemp = null;
 
 let submit = document.querySelector("#search-form");
 submit.addEventListener("submit", handleSubmit);
 
-/*function showPosition(position) {
-  let apiKey = "5354b60afda2b7800186c06153932396";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showTemp);
-}
-function getLoc(event) {
-  event.preventDefault();
-  Navigator.geolocation.getCurrentPosition(showPosition);
-}
-let locButton = document.querySelector("#current-loc");
-locButton.addEventListener("click", getLoc);*/
+let farenheitLink = document.querySelector("#btnradio2");
+farenheitLink.addEventListener("click", showFarenheitTemp);
+
+let celsiusLink = document.querySelector("#btnradio1");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+searchCity("Amsterdam");
