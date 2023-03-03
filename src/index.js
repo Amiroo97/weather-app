@@ -34,12 +34,15 @@ currentDate.innerHTML = `${now.getDate()} ${
 /////////////////////////////////////////////////////////////////////
 
 function showTemp(response) {
+  let cityName = document.querySelector("#city-name");
   let temperature = document.querySelector("#current-temp");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
-  temperature.innerHTML = Math.round(response.data.temperature.current);
+  console.log(response);
+  cityName.innerHTML = response.data.city;
+  temperature.innerHTML = `${Math.round(response.data.temperature.current)}º`;
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -48,22 +51,27 @@ function showTemp(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
 }
-function searchCity(event) {
-  event.preventDefault();
-  let cityName = document.querySelector("#city-name");
-  let citySearch = document.querySelector("#search-box");
-  if (citySearch.value.length > 0) {
-    cityName.innerHTML = `${citySearch.value}`;
-  }
+
+function searchCity(city) {
   let apiKey = "bdt58a0b3f1ee4817602fa2b7do31ae6";
-  let url = `https://api.shecodes.io/weather/v1/current?query=${citySearch.value}&key=${apiKey}&units=metric`;
+  let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(url).then(showTemp);
 }
 
-let submit = document.querySelector("#search-city");
-submit.addEventListener("click", searchCity);
+function handleSubmit(event) {
+  event.preventDefault();
+  let citySearch = document.querySelector("#search-box");
+  if (citySearch.value.length > 0) {
+    searchCity(citySearch.value);
+  }
+}
 
-function showPosition(position) {
+searchCity("Amsterdam");
+
+let submit = document.querySelector("#search-form");
+submit.addEventListener("submit", handleSubmit);
+
+/*function showPosition(position) {
   let apiKey = "5354b60afda2b7800186c06153932396";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -75,4 +83,4 @@ function getLoc(event) {
   Navigator.geolocation.getCurrentPosition(showPosition);
 }
 let locButton = document.querySelector("#current-loc");
-locButton.addEventListener("click", getLoc);
+locButton.addEventListener("click", getLoc);*/
