@@ -54,6 +54,26 @@ function showTemp(response) {
   );
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `                <div class="col-2">
+                  <div class="weather-forecast-date">${day}</div>
+                  <img src="https://cdn-icons-png.flaticon.com/512/1244/1244034.png?w=740&t=st=1672753139~exp=1672753739~hmac=2e24e23867b017c3af85ba96f40eee5148d0693df2f83823e20dbc543b813193" alt="" width="45px">
+                  <div class="weather-forecast-temperature">
+                    <span class="weather-forecast-temperature-min">8º </span>
+                    <span class="weather-forecast-temperature-max">13º</span>
+                  </div>
+                </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchCity(city) {
   let apiKey = "bdt58a0b3f1ee4817602fa2b7do31ae6";
   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -91,3 +111,4 @@ let celsiusLink = document.querySelector("#btnradio1");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 searchCity("Amsterdam");
+displayForecast();
