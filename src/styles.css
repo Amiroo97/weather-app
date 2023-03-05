@@ -7,7 +7,7 @@
 }
 
 .base-wrapper{
-    width: 800px;
+    width: 700px;
     margin: 0 auto;
 }
 .base {
@@ -17,17 +17,17 @@
     border-radius: 25px;
     /*background-image: url(https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);*/
     font-family: 'Varela Round', sans-serif;
-    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
 }
 
 
-.partly-cloudy {
-    width: 150px;
+.current-icon {
+    width: 170px;
     display: block;
     margin: 0 auto;
 }
 .temperature{
-    width: 95px;
+    width: 90px;
     display: block;
     margin: 0 auto;
     margin-bottom: 25px;
@@ -35,6 +35,7 @@
 }
 #description {
     text-align: center;
+    margin-top: -20px;
     
 }
 #decription:first-letter{
@@ -56,6 +57,7 @@ li {
 
 #github-link {
     text-decoration: none;
+    font-family: monospace;
 }
 #city-name {
     text-transform: capitalize;
